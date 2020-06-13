@@ -1,0 +1,45 @@
+1- for those htmnl pages which are static we donot require any extra view engine like pug or ejs
+we can simply store them in any folder say static_assests which will contain css js or static htmls or even images
+
+we have to use
+
+app.use(express.static(__dirname + '/static_assests')); in server.js
+
+With app.use(express.static(…)) you're defining a middleware whose only purpose is to serve static files like JS/CSS.
+
+and while sending such files we have to use 
+res.sendFile(path.join(__dirname, '..', 'static_assests', 'static.html'))
+
+
+directory structure is :
+- server.js
+- routes -> some api.js
+- public assests-> static.html
+
+
+
+
+2- for dynamic html we will have to install view engine like pug [ npm imstall --save pug]
+then we can use res.render to render those pages
+
+
+we have to use
+app.set('views', __dirname + '/views'); 
+
+With app.set('views', …) 
+you're setting the Express's app setting which is
+
+A directory or an array of directories for the application's views. 
+If an array, the views are looked up in the order they occur in the array.
+
+and in api.js
+res.render('dynamic')
+
+for directory structure
+
+directory structure is :
+- server.js
+- routes -> some api.js
+- views-> dynamic.pug
+
+

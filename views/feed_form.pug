@@ -1,0 +1,15 @@
+doctype html
+h2 HTML Forms
+form(action='http://localhost:1234/addfeed' method='POST')
+  label(for='title') Title:
+  br
+  input#Title(type='text' name='Title' value='title')
+  br
+  label(for='description') description:
+  br
+  input#Description(type='text' name='Description' value='description')
+  br
+  br
+  input(type='submit' value='Submit')
+p
+  | If you click the &quot;Submit&quot; button, the form-data will be sent to a page called &quot;post/addfeed&quot;.
